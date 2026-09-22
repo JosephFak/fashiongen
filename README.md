@@ -2,9 +2,7 @@
 
 An AI-powered **Fashion Search Platform** for turning design descriptions into images and finding visually similar fashion items.
 
-This is a new implementation of the behavior described in the [project demo](https://youtu.be/3J2U3lt0vt8) and its supplied transcript. It uses the same stack and pipeline: **HTML/CSS/JavaScript → Tornado → Stable Diffusion 3.5 Medium → ImgBB → SerpAPI Google Lens**. The original source, CSS, screenshots, and demo dataset were not available, so this is not a verified pixel-for-pixel or source-code copy.
-
-The interface uses a plain white layout with standard form controls, a side-by-side image preview, and a simple results grid. It stacks vertically on mobile. The earlier screenshot in `docs/preview.png` predates this simplified layout.
+It uses the same stack and pipeline: **HTML/CSS/JavaScript → Tornado → Stable Diffusion 3.5 Medium → ImgBB → SerpAPI Google Lens**. 
 
 ## Start in under a minute
 
@@ -186,5 +184,3 @@ provider tests do not establish that those external services work.
 - [Tornado asynchronous I/O](https://www.tornadoweb.org/en/stable/guide/async.html).
 - [ImgBB API](https://api.imgbb.com/).
 - [SerpAPI Google Lens](https://serpapi.com/google-lens-api).
-
-The vector artwork is an original demo illustration. Model weights are not included; their use is subject to the model provider's terms.
