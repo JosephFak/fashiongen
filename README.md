@@ -180,9 +180,7 @@ live provider calls, the Docker build, and a public deployment still need
 verification with connected hosting and funded provider accounts. Simulated
 provider tests do not establish that those external services work.
 
-## References
-
-- [Original demonstration](https://youtu.be/3J2U3lt0vt8), as transcribed by the project owner.
+## Reference
 - [Stable Diffusion 3.5 Medium model card and quantization example](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium).
 - [Diffusers 0.35.1 bitsandbytes documentation](https://huggingface.co/docs/diffusers/v0.35.1/quantization/bitsandbytes).
 - [Tornado asynchronous I/O](https://www.tornadoweb.org/en/stable/guide/async.html).
