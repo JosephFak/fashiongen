@@ -1,0 +1,11 @@
+-r requirements.txt
+# Optional live generation dependencies. Install a CUDA-compatible PyTorch build
+# for your machine first; see https://pytorch.org/get-started/locally/.
+torch>=2.6,<3
+diffusers==0.35.1
+transformers>=4.44,<5
+accelerate>=1.0,<2
+bitsandbytes>=0.43.3,<1
+sentencepiece>=0.2,<1
+protobuf>=5,<7
+safetensors>=0.4.5,<1

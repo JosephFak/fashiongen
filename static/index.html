@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn fashion ideas into images, then discover visually similar items.">
+  <title>FashionGen · Fashion Search Platform</title>
+  <link rel="icon" href="/static/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to design workspace</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="FashionGen home">
+        <img src="/static/assets/favicon.svg" alt="" width="34" height="34">
+        <span>fashion<span class="brand-accent">gen</span><span class="brand-period">.</span></span>
+      </a>
+      <span class="header-caption">A little imagination. A new perspective.</span>
+      <a class="how-link" href="#how-it-works">How it works <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow"><span class="tiny-spark" aria-hidden="true">✧</span> YOUR AI FASHION DESIGN ASSISTANT</p>
+        <h1 id="page-title">Fashion Search Platform</h1>
+        <p class="intro-copy">Bring your ideas to life. Generate a design or upload an image,<br class="desktop-break"> then explore similar pieces from across the web.</p>
+      </div>
+      <div class="mode-summary" aria-label="Platform status">
+        <span class="mode-pill" id="generation-mode">Connecting…</span>
+        <span class="mode-pill" id="search-mode" hidden></span>
+      </div>
+    </section>
+
+    <div class="notice" id="demo-notice" hidden>
+      <span class="notice-icon" aria-hidden="true">i</span>
+      <p id="demo-notice-text"></p>
+    </div>
+    <div class="error-message" id="error-message" role="alert" hidden></div>
+    <noscript><p class="error-message">Please enable JavaScript to generate images and search for similar items.</p></noscript>
+
+    <section class="workspace" id="workspace" aria-label="Fashion design workspace">
+      <article class="panel input-panel">
+        <div class="panel-heading">
+          <span class="step-number">01</span>
+          <div><h2>Your inspiration</h2><p>Start with an idea or an image.</p></div>
+        </div>
+        <form id="generate-form">
+          <div class="label-row"><label for="prompt">Describe your design</label><span class="optional">Be as specific as you like</span></div>
+          <div class="textarea-wrap">
+            <textarea id="prompt" name="prompt" rows="5" maxlength="1500" placeholder="A pair of white Louis Vuitton sneakers with blue logos, photographed on a clean white background…" aria-describedby="prompt-hint prompt-count" required></textarea>
+            <span class="char-count" id="prompt-count">0 / 1,500</span>
+          </div>
+          <p class="field-hint" id="prompt-hint">Try a color, material, silhouette, and a few distinctive details.</p>
+          <div class="prompt-examples" aria-label="Example descriptions">
+            <span>Try an idea</span>
+            <button class="example-chip" type="button" data-prompt="A pair of white Louis Vuitton sneakers with blue logos, studio product photography on a clean white background">Blue &amp; white sneakers</button>
+            <button class="example-chip" type="button" data-prompt="An ivory oversized linen blazer with sculptural shoulders and tortoiseshell buttons, studio fashion photography">Linen blazer</button>
+            <button class="example-chip" type="button" data-prompt="A structured emerald green leather shoulder bag with a curved gold clasp, studio product photography">Emerald bag</button>
+          </div>
+          <button class="button primary" id="generate-button" type="submit" disabled><span class="button-icon" aria-hidden="true">✧</span><span id="generate-label">Generate and Search</span><span aria-hidden="true">→</span></button>
+          <p class="button-caption">Generate your image, then search for similar items.</p>
+        </form>
+
+        <div class="divider"><span>or upload your own</span></div>
+        <input class="visually-hidden" id="image-file" type="file" accept="image/png,image/jpeg,image/webp" tabindex="-1">
+        <button class="drop-zone" id="drop-zone" type="button" disabled aria-describedby="upload-hint">
+          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4m-4 4 4-4 4 4M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <strong>Drag &amp; drop an image here</strong>
+          <span>or <span class="browse-text">browse files</span></span>
+          <span class="upload-hint" id="upload-hint">PNG, JPG, or WebP · up to 10 MB</span>
+        </button>
+        <p class="file-caption" id="file-caption" aria-live="polite"></p>
+      </article>
+
+      <article class="panel preview-panel">
+        <div class="panel-heading">
+          <span class="step-number">02</span>
+          <div><h2>Your image</h2><p>A starting point for your next discovery.</p></div>
+          <button id="clear-image" class="text-button clear-button" type="button" hidden>Clear</button>
+        </div>
+        <div class="image-stage" id="image-stage" aria-busy="false">
+          <div class="empty-preview" id="empty-preview">
+            <div class="preview-art" aria-hidden="true">
+              <svg viewBox="0 0 160 136" fill="none"><rect x="20" y="12" width="120" height="112" rx="16" stroke="#d3cbe9" stroke-dasharray="5 5"/><path d="m53 39 15-7c2 14 22 14 24 0l15 7 18 25-19 13-9-13v42H63V64l-9 13-19-13 18-25Z" fill="#eae4f5" stroke="#b3a2d7" stroke-width="2" stroke-linejoin="round"/><path d="m125 22 3 8 8 3-8 3-3 8-3-8-8-3 8-3 3-8Z" fill="#9b83c5"/><circle cx="26" cy="103" r="6" fill="#d7c9ed"/></svg>
+            </div>
+            <h3>Your next idea starts here</h3>
+            <p>Describe a design or upload an image<br>to see it in your workspace.</p>
+          </div>
+          <img class="selected-image" id="preview-image" alt="Your fashion design" hidden>
+          <div class="loading-overlay" id="generation-loading" hidden role="status">
+            <span class="spinner" aria-hidden="true"></span>
+            <strong>Bringing your idea to life</strong>
+            <span>Generation time depends on your hardware.</span>
+            <output id="generation-timer" class="timer" aria-label="Elapsed generation time">0.0s</output>
+          </div>
+        </div>
+        <div class="preview-meta">
+          <span id="image-caption" aria-live="polite">Your image will appear here</span>
+          <a id="download-image" class="text-button" hidden download="fashiongen-concept.png">Download <span aria-hidden="true">↓</span></a>
+        </div>
+        <button id="search-button" class="button secondary" type="button" disabled>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span id="search-label">Search for Similar Items</span><span aria-hidden="true">↗</span>
+        </button>
+        <p class="search-disclosure" id="search-disclosure">Choose an image to explore similar designs.</p>
+      </article>
+    </section>
+
+    <section class="results-section" id="results-section" aria-labelledby="results-title" hidden>
+      <div class="results-heading">
+        <div class="panel-heading"><span class="step-number">03</span><div><h2 id="results-title" tabindex="-1">Similar items</h2><p id="results-summary" role="status"></p></div></div>
+        <span class="results-label" id="results-label">Visual matches</span>
+      </div>
+      <p class="results-note" id="results-note">Premium highlights above-average image resolution when dimensions are available.</p>
+      <div class="search-progress" id="search-progress" role="status" hidden><span class="spinner" aria-hidden="true"></span><div><strong>Finding similar items…</strong><p id="search-progress-copy">Searching the web for visual matches.</p></div><output id="search-timer" class="timer" aria-label="Elapsed search time">0.0s</output></div>
+      <div class="results-grid" id="results-grid" aria-busy="false"></div>
+      <div class="empty-results" id="empty-results" hidden><h3>No similar items found</h3><p>Try a clearer image, a different angle, or another design.</p></div>
+      <nav class="pagination" id="pagination" aria-label="Search result pages" hidden>
+        <button class="page-button" id="previous-page" type="button">← Previous</button>
+        <span id="page-indicator" aria-live="polite">Page 1 of 1</span>
+        <button class="page-button" id="next-page" type="button">Next →</button>
+      </nav>
+    </section>
+
+    <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+      <div class="how-intro"><p class="eyebrow">MADE FOR YOUR CREATIVE PROCESS</p><h2 id="how-title">An idea is just the beginning.</h2></div>
+      <div class="how-step"><span>01 / IMAGINE</span><h3>Start with inspiration</h3><p>Describe the piece you have in mind, or bring a sketch, mood board, or photo.</p></div>
+      <div class="how-step"><span>02 / CREATE</span><h3>Make it visual</h3><p>Turn a text description into a design image you can refine and explore.</p></div>
+      <div class="how-step"><span>03 / DISCOVER</span><h3>Explore similar pieces</h3><p>Compare visual matches and visit their sources for a closer look.</p></div>
+    </section>
+    <p class="discovery-note">Visual search helps you explore existing designs. It cannot establish that a design is original.</p>
+  </main>
+  <footer><span class="footer-brand">fashiongen.</span><span>From inspiration to exploration.</span><span>Fashion Search Platform</span></footer>
+</body>
+</html>

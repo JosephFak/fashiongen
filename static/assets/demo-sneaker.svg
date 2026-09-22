@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Demo sneaker illustration</title><desc id="desc">An original vector illustration of a white low-top sneaker with blue panels. This is a fixed sample, not an AI-generated image or a retail product.</desc>
+  <defs><linearGradient id="background" x2="0" y2="1"><stop stop-color="#f8f6fc"/><stop offset="1" stop-color="#eeeaf4"/></linearGradient><linearGradient id="upper" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e5e8ed"/></linearGradient><linearGradient id="blue" x2="1" y2="1"><stop stop-color="#6285cf"/><stop offset="1" stop-color="#284a95"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter></defs>
+  <rect width="960" height="720" fill="url(#background)"/>
+  <ellipse cx="488" cy="508" rx="304" ry="23" fill="#7f718f" opacity=".13" filter="url(#shadow)"/>
+  <g transform="translate(16 20) rotate(-8 470 400)">
+    <path d="M188 399c0-42 19-103 36-112 20-10 31 16 53 24 31 11 59-5 77-12l78 45c42 29 90 46 151 55 44 6 97 10 139 30 29 13 47 33 38 55-15 28-111 32-207 31H265c-54 0-82-22-81-46l4-70Z" fill="#d9dce5" stroke="#d0d3df" stroke-width="2"/>
+    <path d="M205 341c3-35 18-69 29-64 16 7 26 39 56 39 32-1 38-23 59-19 14 1 33 22 65 45 64 45 118 65 187 75 44 6 101 8 133 29 12 8 16 19 15 30-46 17-118 14-206 13H265c-36-1-65-7-65-27l5-121Z" fill="url(#upper)" stroke="#c9cfdf" stroke-width="2"/>
+    <path d="M212 325c11 16 35 28 58 28 28 0 52-14 68-29l-22-17c-24 15-40 12-55 3-21-12-22-22-30-28-9 5-16 25-19 43Z" fill="#3861ac"/>
+    <path d="m335 318 61 40c-9 35-19 63-11 103l-67 7c-22-58-4-98 17-150Z" fill="url(#blue)" stroke="#345396" stroke-width="2"/>
+    <path d="m394 356 24-17 106 68-21 41-109-92Z" fill="#f8fafc" stroke="#cbd2df" stroke-width="2"/>
+    <path d="m365 352 38-12 94 61-23 21-109-70Z" fill="#b7c9e8"/>
+    <path d="m391 350 27 33m-7-19 27 33m-7-20 28 33m-7-19 29 32" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+    <path d="M511 415c16 34 15 58 6 76h157c-8-27-29-41-58-48l-105-28Z" fill="#fdfdfe" stroke="#d2d7e2" stroke-width="2"/>
+    <path d="M252 361c-17 22-22 65-13 96m18-13 47-3m92 4 45-32" stroke="#c8d1df" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+    <path d="m438 428 37 9-20 26-37-10 20-25Z" fill="#5376b9" opacity=".95"/>
+    <path d="m466 439 8 18m-48-7 18-11" stroke="#d9e5f8" stroke-width="2"/>
+    <path d="M194 463c31 19 77 23 139 23h220c87 1 153-1 198-17l5 26c-27 16-105 23-201 22H263c-42-1-69-17-69-34v-20Z" fill="#fff" stroke="#c9ceda" stroke-width="2"/>
+    <path d="M195 488c39 21 75 22 123 22h256c83 0 140-4 180-15" stroke="#d9dde6" stroke-width="3" fill="none"/>
+    <path d="m266 488 36 1m319-1 76-5" stroke="#3b5e9d" stroke-width="4" stroke-linecap="round"/>
+    <path d="m288 490 2 17m17-17 2 17m18-16 2 16m18-16 2 16m18-16 2 16" stroke="#e2e5eb" stroke-width="2"/>
+  </g>
+  <text x="480" y="625" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#a194b0" letter-spacing="3">FASHIONGEN / DEMO DESIGN STUDY</text>
+</svg>

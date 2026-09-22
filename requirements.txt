@@ -1,0 +1,4 @@
+# Lightweight UI, upload, and search runtime; no GPU libraries in demo mode.
+tornado==6.5.10
+Pillow==12.3.0
+python-dotenv==1.2.3

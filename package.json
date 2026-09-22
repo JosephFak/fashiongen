@@ -1,0 +1,8 @@
+{
+  "name": "fashiongen-browser-checks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Optional browser checks. The application itself has no Node build step.",
+  "scripts": { "test:e2e": "node tests/browser.cjs" },
+  "devDependencies": { "playwright": "1.62.1" }
+}
