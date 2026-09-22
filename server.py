@@ -1,5 +1,3 @@
-"""Run with `python server.py`, then visit http://localhost:8888."""
-
 import asyncio
 import json
 import logging
@@ -187,7 +185,7 @@ async def main():
         LOGGER.info("Preloading Stable Diffusion 3.5 Medium before starting the server…")
         pipeline = await asyncio.to_thread(setup_stable_diffusion, config)
     app = make_app(config, pipeline)
-    # Includes base64 and multipart overhead; decoded image size is checked separately.
+
     server = HTTPServer(app, max_body_size=15 * 1024 * 1024, idle_connection_timeout=300)
     server.listen(config.port, address=config.host)
     LOGGER.info("FashionGen running at http://%s:%s (generation=%s, search=%s)",
@@ -198,7 +196,7 @@ async def main():
         try:
             loop.add_signal_handler(sig, stopped.set)
         except NotImplementedError:
-            pass  # Windows falls back to KeyboardInterrupt.
+            pass
     await stopped.wait()
     server.stop()
     await server.close_all_connections()

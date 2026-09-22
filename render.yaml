@@ -1,4 +1,3 @@
-# Provider tokens are entered privately during setup, never committed here.
 services:
   - type: web
     name: fashiongen
