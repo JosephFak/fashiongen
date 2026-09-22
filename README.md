@@ -4,13 +4,13 @@ An AI-powered **Fashion Search Platform** for turning design descriptions into i
 
 This is a new implementation of the behavior described in the [project demo](https://youtu.be/3J2U3lt0vt8) and its supplied transcript. It uses the same stack and pipeline: **HTML/CSS/JavaScript → Tornado → Stable Diffusion 3.5 Medium → ImgBB → SerpAPI Google Lens**. The original source, CSS, screenshots, and demo dataset were not available, so this is not a verified pixel-for-pixel or source-code copy.
 
-![FashionGen interface with the clearly labeled demo sneaker illustration](docs/preview.png)
+The interface uses a plain white layout with standard form controls, a side-by-side image preview, and a simple results grid. It stacks vertically on mobile. The earlier screenshot in `docs/preview.png` predates this simplified layout.
 
 ## Start in under a minute
 
 Requires Python 3.11 or newer. Demo mode needs no API keys, model download, or GPU.
 
-Extract the project ZIP (or clone this repository once published), then:
+Extract the project ZIP or clone this repository, then:
 
 ```bash
 cd fashiongen
@@ -148,7 +148,7 @@ Open http://localhost:8888. This lightweight image supports demo generation and 
 
 ## Verification limits
 
-All 31 backend tests passed. Chromium checks passed for generation, image upload, search, premium badges, all three result pages, full-length titles, failure recovery, and a 390-pixel mobile viewport. Model inference, paid provider calls, and the Docker image were not executed in the implementation environment. The live adapters are tested against mocked responses shaped like the providers' documented APIs. Screenshots from the original video are still needed to verify exact visual fidelity.
+All 31 backend tests passed after the layout simplification. Frontend element IDs were checked against the JavaScript event handlers. Earlier Chromium checks covered generation, image upload, search, premium badges, all three result pages, full-length titles, failure recovery, and a 390-pixel mobile viewport; those browser checks have not been rerun against the simplified layout because browser preview access was unavailable. Model inference, successful live provider calls, and the Docker image have not been verified in this environment. The live adapters are tested against mocked responses shaped like the providers' documented APIs.
 
 ## References
 

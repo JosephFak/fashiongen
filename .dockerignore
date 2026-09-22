@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+.venv
+venv
+node_modules
+__pycache__
+tests
+docs
+models
+*.safetensors
+*.ckpt
+*.pt
+*.pth
