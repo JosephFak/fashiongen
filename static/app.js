@@ -115,7 +115,7 @@
     try {
       const data = await request("/api/text-to-image", { prompt });
       const demo = data.mode === "demo";
-      const caption = demo ? "Demo image · fixed sneaker illustration" : `Generated in ${data.elapsed_seconds.toFixed(1)}s · seed ${data.seed}`;
+      const caption = demo ? "Demo image · fixed sneaker illustration" : `Generated in ${data.elapsed_seconds.toFixed(1)}s`;
       await selectImage(data.image_url, caption, demo ? "fashiongen-demo.svg" : "fashiongen-concept.png");
       releaseObjectUrl();
       $("file-caption").textContent = "";
@@ -201,7 +201,7 @@
     image.addEventListener("error", () => { image.src = "/static/assets/image-placeholder.svg"; }, { once: true });
     media.append(image);
     if (item.premium) {
-      const badge = element("span", "premium-badge", "✧ Premium");
+      const badge = element("span", "premium-badge", "Premium");
       badge.title = "Above-average image resolution in this result set; not a product-quality rating.";
       media.append(badge);
     }
@@ -212,7 +212,7 @@
     link.href = item.link;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.append(element("span", "", "View item"), element("span", "", "↗"));
+    link.textContent = "View item";
     link.setAttribute("aria-label", `View item: ${item.title} (opens a new tab)`);
     body.append(link);
     if (item.demo) body.append(element("p", "demo-link-note", "Demo link · opens a web search"));
@@ -284,7 +284,7 @@
       state.config = await response.json();
       const generationDemo = state.config.generation_mode === "demo";
       const searchDemo = state.config.search_mode === "demo";
-      $("generation-mode").textContent = generationDemo ? "Demo generation" : "Stable Diffusion 3.5";
+      $("generation-mode").textContent = generationDemo ? "Demo generation" : "Image generation ready";
       $("generation-mode").classList.toggle("live", !generationDemo);
       $("search-mode").textContent = searchDemo ? "Demo search" : "Live visual search";
       $("search-mode").classList.toggle("live", !searchDemo);
