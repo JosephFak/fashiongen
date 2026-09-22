@@ -5,7 +5,9 @@ services:
       - "127.0.0.1:8888:8888"
     environment:
       HOST: 0.0.0.0
-      GENERATION_MODE: demo
+      GENERATION_MODE: ${GENERATION_MODE:-demo}
+      GENERATION_PROVIDER: ${GENERATION_PROVIDER:-replicate}
+      REPLICATE_API_TOKEN: ${REPLICATE_API_TOKEN:-}
       SEARCH_MODE: ${SEARCH_MODE:-demo}
       IMGBB_API_KEY: ${IMGBB_API_KEY:-}
       SERPAPI_API_KEY: ${SERPAPI_API_KEY:-}

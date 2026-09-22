@@ -59,6 +59,12 @@ SerpAPI now also documents direct image upload. This project deliberately keeps 
 
 ## Enable Stable Diffusion 3.5 Medium
 
+For a public website on an ordinary web host, use the hosted option in
+[Public deployment](docs/DEPLOYMENT.md): `GENERATION_MODE=live`,
+`GENERATION_PROVIDER=replicate`, and a private `REPLICATE_API_TOKEN`.
+It runs the same Stable Diffusion 3.5 Medium model on Replicate. The following
+instructions cover the original local GPU option (`GENERATION_PROVIDER=local`).
+
 1. Visit [the model page](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium), review its terms, and obtain access using your own Hugging Face account.
 2. Install a [PyTorch build for your machine](https://pytorch.org/get-started/locally/). For the default 4-bit configuration, use an NVIDIA GPU with a compatible CUDA build.
 3. Install the additional dependencies:
@@ -106,6 +112,8 @@ Visual search can help compare existing designs. It does not prove originality.
 server.py                 Tornado routes, startup, and pipeline orchestration
 fashiongen/config.py      Environment validation
 fashiongen/model.py       Model preloading, NF4 setup, and inference
+fashiongen/hosted_model.py Hosted SD 3.5 Medium without a local GPU
+fashiongen/limits.py      Global rolling usage limits for live operations
 fashiongen/services.py    ImgBB and SerpAPI HTTP adapters
 fashiongen/images.py      Upload decoding and normalization
 fashiongen/results.py     Result normalization and premium ranking
@@ -144,11 +152,33 @@ Set `BASE_URL` if the server is elsewhere. Set `SCREENSHOT_DIR` to save browser 
 docker compose up --build
 ```
 
-Open http://localhost:8888. This lightweight image supports demo generation and either demo or live search, based on `.env`. It deliberately does not bundle PyTorch, CUDA, or model weights. Use the Python instructions above for live generation. The published port binds to localhost. Before exposing the app publicly, add authentication, rate limiting, and HTTPS; this repository is configured as a local single-user project.
+Open http://localhost:8888. This lightweight image supports demo generation or
+hosted generation through Replicate, and either demo or live search. It does not
+bundle PyTorch, CUDA, or model weights. Use the Python instructions above for
+local GPU generation. The Compose port binds to localhost.
+
+## Publish a website linked from GitHub
+
+See [the deployment guide](docs/DEPLOYMENT.md). The repository includes
+`railway.json` and `render.yaml` for hosting the complete Tornado app. Provider
+keys belong in the host's private runtime variables; they never belong in
+browser JavaScript or GitHub Pages assets. GitHub Pages cannot run this backend.
+
+Public mode requires live generation and live search, so a missing integration
+does not silently publish fixed demo results. Live endpoints have concurrency
+and usage limits. These are per-process limits, not durable billing caps.
+After deploying and testing real provider calls, put the verified HTTPS URL in
+the repository's Website field. No live URL is claimed by this source code.
 
 ## Verification limits
 
-All 31 backend tests passed after the layout simplification. Frontend element IDs were checked against the JavaScript event handlers. Earlier Chromium checks covered generation, image upload, search, premium badges, all three result pages, full-length titles, failure recovery, and a 390-pixel mobile viewport; those browser checks have not been rerun against the simplified layout because browser preview access was unavailable. Model inference, successful live provider calls, and the Docker image have not been verified in this environment. The live adapters are tested against mocked responses shaped like the providers' documented APIs.
+The backend suite covers endpoint contracts, provider errors, hosted generation,
+credential isolation, usage limits, secure public cookies, image validation, and
+result ranking. Earlier Chromium checks covered generation, upload, search, and
+pagination; they predate the simplified layout. Actual model inference, successful
+live provider calls, the Docker build, and a public deployment still need
+verification with connected hosting and funded provider accounts. Simulated
+provider tests do not establish that those external services work.
 
 ## References
 
